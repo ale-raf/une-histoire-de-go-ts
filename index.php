@@ -13,12 +13,11 @@ if (isset($_POST['envoyer'])) {
             $données += [$key => $value];
         }
     }
-    // on sauvegarde les données dans le fichier txt prévu à cet effet
-    if (!empty($données)) {
-        saveUserData($données);
-    }
-    // on affiche un message de succès ou d'erreur
+    /* si tous les champs sont remplis
+    on sauvegarde les données dans le fichier txt prévu à cet effet
+    on affiche un message de succès ou d'erreur */
     if (count($données) === count($_POST) - 1) {
+        saveUserData($données);
         echo '<p style="color: green">Vos données ont bien été envoyées</p>';
     } else {
         echo '<p style="color: red">Vous devez renseigner tous les champs</p>';
